@@ -1,0 +1,71 @@
+ // problem 1
+ //solution 1
+ ALGORITHM somme
+ VAR
+     set1: ARRAY_OF INTEGER[20];
+     set2: ARRAY_OF INTEGER[20];
+     sum: INTEGER=0;
+ BEGIN
+     FOR i FROM 0 TO set1.length STEP 1  DO
+     FOR j FROM 0 TO set2.length STEP 1  DO
+         IF (set1[i]<>set2[j]) THEN
+             sum:= sum + set1[i]+set2[j];
+         END_IF
+
+     END_FOR
+     END_FOR
+ END
+
+
+
+// solution 2
+ ALGORITHM hsum
+ hset1: HASH_TABLE<INTEGER,INTEGER>
+ hset2: HASH_TABLE<INTEGER,INTEGER>
+ som:INTEGER =0;
+FOR i FROM 0 TO hset1.length STEP 1  DO
+     FOR j FROM 0 TO hset2.length STEP 1  DO
+IF (hset1[i].get<>hset2[j].get) THEN
+             som:= som + hset1[i].get + set2[j].get;
+         END_IF
+
+END_FOR
+END_FOR
+END
+
+// problem 2
+//solution1
+   ALGORITHM somme1
+ VAR
+     set1: ARRAY_OF INTEGER[20];
+     set2: ARRAY_OF INTEGER[20];
+     sum: INTEGER=0;
+ BEGIN
+     FOR i FROM 0 TO set1.length STEP 1  DO
+     FOR j FROM 0 TO set2.length STEP 1  DO
+         IF (set1[i]<>set2[j]) THEN
+             sum:= sum + set1[i]+set2[j];
+             ELSE
+             sum:= sum + set1[i];
+         END_IF
+
+     END_FOR
+     END_FOR
+ END
+
+ //solution 2
+ ALGORITHM somme-1
+  hset1: HASH_TABLE<INTEGER,INTEGER>
+ hset2: HASH_TABLE<INTEGER,INTEGER>
+ somm:INTEGER =0;
+FOR i FROM 0 TO hset1.length STEP 1  DO
+     FOR j FROM 0 TO hset2.length STEP 1  DO
+IF (hset1[i].get<>hset2[j].get) THEN
+             somm:= somm + hset1[i].get + set2[j].get;
+             ELSE
+             somm:= somm + hset1[i].get
+         END_IF
+
+END_FOR
+END_FOR
+END
