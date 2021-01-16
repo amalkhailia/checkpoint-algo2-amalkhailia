@@ -8,7 +8,7 @@
  BEGIN
      FOR i FROM 0 TO set1.length STEP 1  DO
      FOR j FROM 0 TO set2.length STEP 1  DO
-         IF (set1[i]<>set2[j]) THEN
+         IF (set1[i] <> set2[j]) THEN
              sum:= sum + set1[i]+set2[j];
          END_IF
 
@@ -43,10 +43,9 @@ END
  BEGIN
      FOR i FROM 0 TO set1.length STEP 1  DO
      FOR j FROM 0 TO set2.length STEP 1  DO
-         IF (set1[i]<>set2[j]) THEN
+         IF (set1[i] == set2[j]) THEN
              sum:= sum + set1[i]+set2[j];
-             ELSE
-             sum:= sum + set1[i];
+            
          END_IF
 
      END_FOR
@@ -60,10 +59,9 @@ END
  somm:INTEGER =0;
 FOR i FROM 0 TO hset1.length STEP 1  DO
      FOR j FROM 0 TO hset2.length STEP 1  DO
-IF (hset1[i].get<>hset2[j].get) THEN
+IF (hset1[i].get == hset2[j].get) THEN
              somm:= somm + hset1[i].get + set2[j].get;
-             ELSE
-             somm:= somm + hset1[i].get
+             
          END_IF
 
 END_FOR
