@@ -19,18 +19,45 @@
 
 
 // solution 2
- ALGORITHM hsum
- hset1: HASH_TABLE<INTEGER,INTEGER>
- hset2: HASH_TABLE<INTEGER,INTEGER>
- som:INTEGER =0;
-FOR i FROM 0 TO hset1.length STEP 1  DO
-     FOR j FROM 0 TO hset2.length STEP 1  DO
-IF (hset1[i].get<>hset2[j].get) THEN
-             som:= som + hset1[i].get + set2[j].get;
-         END_IF
+ ALGORITHM better_approach
+VAR
+    set1,set2 : ARRAY_OF INTEGER[20];
+    set_keys : ARRAY_OF INTEGER[40];
+    dict := HASH_TABLE<INTEGER,INTEGER>;
+    i, count : INTEGER;
+    sum : INTEGER := 0;
+BEGIN
+    // reading elements in the two sets
 
-END_FOR
-END_FOR
+    // Insert all the elements from
+    // both the sets with the element as key and its count (in both arrays).
+
+    FOR i FROM 0 TO set1.length -1 STEP 1  DO
+        IF (dict.lookup(set1[i]) = TRUE) THEN
+            count := dict.get(set1[i]);
+            dict.insert(set1[i],count+1);
+        ELSE
+            dict.insert(set1[i],1);
+        END_IF
+    END_FOR
+
+    FOR i FROM 0 TO set2.length -1 STEP 1  DO
+        IF (dict.lookup(set2[i]) = TRUE) THEN
+            count := dict.get(set2[i]);
+            dict.insert(set2[i],count+1);
+        ELSE
+            dict.insert(set2[i],1);
+        END_IF
+    END_FOR
+
+    //get sum of distinct elements
+    set_keys := dict.getKeys();
+    FOR i FROM 0 TO set_keys.length -1 STEP 1  DO
+        IF (dict.get(set_keys[i]) = 1) THEN
+            sum := sum +set_keys[i];
+        END_IF
+    END_FOR
+
 END
 
 // problem 2
@@ -53,17 +80,43 @@ END
  END
 
  //solution 2
- ALGORITHM somme-1
-  hset1: HASH_TABLE<INTEGER,INTEGER>
- hset2: HASH_TABLE<INTEGER,INTEGER>
- somm:INTEGER =0;
-FOR i FROM 0 TO hset1.length STEP 1  DO
-     FOR j FROM 0 TO hset2.length STEP 1  DO
-IF (hset1[i].get == hset2[j].get) THEN
-             somm:= somm + hset1[i].get + set2[j].get;
-             
-         END_IF
+ ALGORITHM better_approach
+VAR
+    set1,set2 : ARRAY_OF INTEGER[20];
+    set_keys : ARRAY_OF INTEGER[40];
+    dict := HASH_TABLE<INTEGER,INTEGER>;
+    i, count : INTEGER;
+    sum : INTEGER := 0;
+BEGIN
+    // reading elements in the two sets
 
-END_FOR
-END_FOR
+    // Insert all the elements from
+    // both the sets with the element as key and its count (in both arrays).
+
+    FOR i FROM 0 TO set1.length -1 STEP 1  DO
+        IF (dict.lookup(set1[i]) = TRUE) THEN
+            count := dict.get(set1[i]);
+            dict.insert(set1[i],count+1);
+        ELSE
+            dict.insert(set1[i],1);
+        END_IF
+    END_FOR
+
+    FOR i FROM 0 TO set2.length -1 STEP 1  DO
+        IF (dict.lookup(set2[i]) = TRUE) THEN
+            count := dict.get(set2[i]);
+            dict.insert(set2[i],count+1);
+        ELSE
+            dict.insert(set2[i],1);
+        END_IF
+    END_FOR
+
+    //sum all the elements with count=2.
+    set_keys := dict.getKeys();
+    FOR i FROM 0 TO set_keys.length -1 STEP 1  DO
+        IF (dict.get(set_keys[i]) = 2) THEN
+            sum := sum +set_keys[i];
+        END_IF
+    END_FOR
+
 END
